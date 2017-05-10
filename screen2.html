@@ -155,8 +155,9 @@ function start(e) {
       mandatory: {
         chromeMediaSource: 'screen',
         chromeMediaSourceId: 'screen:1:0'
-        // maxWidth: 640,
-        // maxHeight: 480
+        maxWidth: window.screen.width,
+        maxHeight: window.screen.height,
+        maxFrameRate: 3
       }
     }
   }, function(s) {

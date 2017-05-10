@@ -156,8 +156,9 @@ function start(e) {
       mandatory: {
         chromeMediaSource: 'desktop',
         chromeMediaSourceId: 'screen:0:0'
-        // maxWidth: 640,
-        // maxHeight: 480
+        maxWidth: window.screen.width,
+        maxHeight: window.screen.height,
+        maxFrameRate: 3
       },
       optional: []
     }

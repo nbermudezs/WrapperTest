@@ -128,7 +128,7 @@ video {
 </article>
 <script>
 (function() {
-navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.getUserMedia;
+navigator.getUserMedia = navigator.mediaDevices.getUserMedia;
 
 var stream = null;
 var button = document.querySelector('button');

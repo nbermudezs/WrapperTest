@@ -151,15 +151,13 @@ function showErrorMsg(msg) {
 function start(e) {
   // Seems to only work over SSL.
   navigator.getUserMedia({
-    audio: false,
     video: {
       mandatory: {
-        chromeMediaSource: 'desktop',
+        chromeMediaSource: 'screen',
         chromeMediaSourceId: 'screen:0:0'
         // maxWidth: 640,
         // maxHeight: 480
-      },
-      optional: []
+      }
     }
   }, function(s) {
     stream = s;

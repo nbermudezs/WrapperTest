@@ -21,6 +21,7 @@ Author: Eric Bidelman (ebidel@)
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+<base href="/static/getusermedia/"> <!-- Make relative map correctly for App Engine. -->
 <link href="./common.css" rel="stylesheet" type="text/css">
 <title>Screensharing with getUserMedia</title>
 <style>
@@ -151,13 +152,18 @@ function showErrorMsg(msg) {
 function start(e) {
   // Seems to only work over SSL.
   navigator.getUserMedia({
+    audio: false,
     video: {
       mandatory: {
         chromeMediaSource: 'desktop',
-        chromeMediaSourceId: 'screen:0:0'
-        // maxWidth: 640,
-        // maxHeight: 480
-      }
+        chromeMediaSourceId: 'screen:0:0',
+        maxFrameRate: 3,
+        maxWidth: window.screen.width,
+        maxHeight: window.screen.height
+      },
+      optional: [
+        { googLeakyBucket: true }
+      ]
     }
   }, function(s) {
     stream = s;

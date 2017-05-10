@@ -167,6 +167,7 @@ function start(e) {
     }
   }, function(s) {
     stream = s;
+    console.log('STREAM: ', stream);
 
     button.textContent = 'Stop';
     button.removeEventListener('click', start);

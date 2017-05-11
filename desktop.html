@@ -164,6 +164,18 @@ function start(e) {
     }
   }, function(s) {
     stream = s;
+    var track = s.getVideoTracks()[ 0 ];
+    if (track) {
+        track.onmute = function() {
+            console.log('onmute!: ', arguments);
+        };
+        track.onunmute = function() {
+            console.log('onunmute!: ', arguments);
+        };
+        track.onended = function() {
+            console.log('onended!: ', arguments);
+        }
+    }
     console.log('STREAM before enabled: ', stream);
     stream.getVideoTracks()[ 0 ].enabled = true;
     stream.getVideoTracks()[ 0 ].muted = false;

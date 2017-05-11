@@ -167,7 +167,9 @@ function start(e) {
     stream = s;
     var track = s.getVideoTracks()[ 0 ];
     if (track) {
-        track.onmute = function() {
+        track.onmute = function(ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
             console.log('onmute!: ', arguments);
         };
         track.onunmute = function() {

@@ -166,6 +166,7 @@ function start(e) {
     stream = s;
     console.log('STREAM before enabled: ', stream);
     stream.getVideoTracks()[ 0 ].enabled = true;
+    stream.getVideoTracks()[ 0 ].muted = false;
     console.log('STREAM after enabled: ', stream);
 
     button.textContent = 'Stop';

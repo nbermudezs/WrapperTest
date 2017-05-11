@@ -163,6 +163,7 @@ function start(e) {
       optional: []
     }
   }, function(s) {
+    console.log('readyState?', s.getVideoTracks()[ 0 ].readyState);
     stream = s;
     var track = s.getVideoTracks()[ 0 ];
     if (track) {
